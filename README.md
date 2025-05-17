@@ -4,7 +4,7 @@
 ![GitHub Issues or Pull Requests](https://img.shields.io/github/issues/harkerbyte/linux-monster?style=plastic&logo=Github)
 
 ### Issues Addressed
-</br> <a href="https://github.com/harkerbyte/linux-monster/issues/1">  Issue #1</a>
+<a href="https://github.com/harkerbyte/linux-monster/issues/1">  Issue #1</a>
 ### Changelog
 <table>
   <tr>
