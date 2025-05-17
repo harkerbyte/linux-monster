@@ -3,8 +3,8 @@
 ![GitHub forks](https://img.shields.io/github/forks/harkerbyte/linux-monster?style=plastic)
 ![GitHub Issues or Pull Requests](https://img.shields.io/github/issues/harkerbyte/linux-monster?style=plastic&logo=Github)
 
-### Issues
-* Known issues addressed </br> <a href="https://github.com/harkerbyte/linux-monster/issues/1"> 1st issue </a>
+### Issues Addressed
+</br> <a href="https://github.com/harkerbyte/linux-monster/issues/1">  Issue #1</a>
 ### Changelog
 <table>
   <tr>
