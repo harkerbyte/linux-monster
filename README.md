@@ -5,6 +5,7 @@
 
 ### Issues Addressed
 <a href="https://github.com/harkerbyte/linux-monster/issues/1">  Issue #1</a>
+
 <a href="https://github.com/harkerbyte/linux-monster/issues/2">Issue #2</a>
 ### Changelog
 <table>
