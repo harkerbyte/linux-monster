@@ -52,6 +52,14 @@
       Took me long enough 🗿
     </td>
   </tr>
+  <tr>
+    <td>
+      25, May
+    </td>
+    <td>
+      📜Tweaked error handling and captcha detection
+    </td>
+  </tr>
 </table>
 
 
