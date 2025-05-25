@@ -57,7 +57,8 @@
       25, May
     </td>
     <td>
-      📜Tweaked error handling and captcha detection
+      Brute speed 📈</br>
+      📜Tweaked error handling and facebook captcha detection
     </td>
   </tr>
 </table>
