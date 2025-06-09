@@ -39,7 +39,7 @@ else:
   os.makedirs('data', exist_ok = True)
   with open('data/settings.json', 'w') as new_setting:
     format_ = {
-      "settings": False,
+      "settings": True,
       "proxy": False,
       "username": "",
       "email address": "",
