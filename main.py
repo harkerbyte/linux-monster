@@ -262,8 +262,8 @@ def main():
   bs = beautifulsoup
   command = True
   while command:
-    command = input(f'{yellow}[{blue} 𝙼𝚊𝚒𝚗-𝚖𝚎𝚗𝚞{yellow} ]𝙴𝚗𝚝𝚎𝚛 𝚊 𝚌𝚘𝚖𝚖𝚊𝚗𝚍 : {plain}')
-    command = command.strip()
+    command = input(f'{yellow}[{blue} 𝙼𝚊𝚒𝚗-𝚖𝚎𝚗𝚞{yellow} ]𝙴𝚗𝚝𝚎𝚛 𝚊 𝚌𝚘𝚖𝚖𝚊𝚗𝚍 : {plain}').strip()
+    
     if command.lower() in ['brute', 'brute-force']:
       if set_json["proxy"]:
         temp_disable = input(f'{blue}𝚃𝚎𝚖𝚙𝚘𝚛𝚊𝚛𝚒𝚕𝚢 𝚍𝚒𝚜𝚊𝚋𝚕𝚎 𝚙𝚛𝚘𝚡𝚢 𝚏𝚘𝚛 𝚗𝚘𝚠 [𝚈𝚎𝚜 | 𝙽𝚘] : {plain}').lower()
