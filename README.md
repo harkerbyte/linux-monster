@@ -8,6 +8,7 @@
 <a href="https://github.com/harkerbyte/linux-monster/issues/2">Issue #2</a>
 <a href="https://github.com/harkerbyte/linux-monster/issues/3">
 Issue #3</a> 
+<a href="https://github.com/harkerbyte/linux-monster/issues/4" >Issue #4</a>
 ### Changelog
 <table>
   <tr>
