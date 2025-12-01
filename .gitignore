@@ -1,7 +1,7 @@
 *.log
 data/*.png
-data/settings.json
 __pycache__/
 data/temps.txt
 data/facebook.json
 data/google.json
+data/settings.json
