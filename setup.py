@@ -40,6 +40,6 @@ setup(
         "Youtube" : "https://youtube.com/@harkerbyte",
         "Instagram": "https://instagram.com/harkerbyte"
     },
-    long_description=open("pypi.md", encoding="utf-8").read(),
+    long_description=open("README.md", encoding="utf-8").read(),
     long_description_content_type="text/markdown",
 )

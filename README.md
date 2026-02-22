@@ -3,6 +3,17 @@
 ![GitHub forks](https://img.shields.io/github/forks/harkerbyte/linux-monster?style=plastic)
 ![GitHub Issues or Pull Requests](https://img.shields.io/github/issues/harkerbyte/linux-monster?style=plastic&logo=Github)
 
+![PyPI - Version](https://img.shields.io/pypi/v/linux-monster?color=blue&label=PyPI)
+[![PyPI Downloads](https://static.pepy.tech/personalized-badge/linux-monster?period=total&units=INTERNATIONAL_SYSTEM&left_color=BLACK&right_color=BLUE&left_text=downloads)](https://pepy.tech/projects/linux-monster)
+
+![Platform](https://img.shields.io/badge/platform-linux%20%7C%20macos%20%7C%20windows%20%7C%20android-lightgrey)
+![License](https://img.shields.io/pypi/l/linux-monster?color=yellow)
+
+<a href = "https://facebook.com/harkerbyte">![Facebook](https://img.shields.io/badge/Facebook-%231877F2.svg?style=flat&logo=Facebook&logoColor=white)</a>
+<a href ="https://youtube.com/@harkerbyte" >![YouTube](https://img.shields.io/badge/YouTube-%23FF0000.svg?style=flat&logo=YouTube&logoColor=white)</a>
+<a href="https://whatsapp.com/channel/0029Vb5f98Z90x2p6S1rhT0S">![WhatsApp](https://img.shields.io/badge/WhatsApp-25D366?style=flat&logo=whatsapp&logoColor=white)</a>
+<a href="https://instagram.com/harkerbyte" >
+![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=flat&amp;logo=instagram&amp;logoColor=white) </a>
 ### Issues Addressed
 <a href="https://github.com/harkerbyte/linux-monster/issues/1">  Issue #1</a>
 <a href="https://github.com/harkerbyte/linux-monster/issues/2">Issue #2</a>
@@ -76,6 +87,24 @@ Issue #3</a>
       📜.gitignore updated
     </td>
   </tr>
+ <tr> 
+  <td>
+  21, Feb 2026
+  </td>
+  <td> 
+   📜Migration to pypi</br>
+   📜Proper error handling</br>
+   📜Memory issue has now been fixed</br>
+   📜Brute operation further optimised towards lesser memory consumption
+  </td>
+  <td> 
+  New keyword added : refresh</br>
+  You can now pip install linux-monster</br>
+  Brute automatically continues from where ever you last stopped, courtesy of memory</br>
+  python -m update is no longer a thing, simply pip install linux-monster to always stay upto date.</br>
+  </td>
+ </tr>
+ 
 </table>
 
 
@@ -114,11 +143,21 @@ Get the app from <a title="F-droid termux" href="https://f-droid.org/en/packages
  pkg install x11-repo -y
  pkg install tur-repo -y
  pkg install chromium -y
- git clone https://github.com/harkerbyte/linux-monster
- bash setup.sh -f requirements.txt
 ```
-
-[![SETUP TUTORIAL YT](https://github.com/harkerbyte/linux-monster/blob/06f6a0867368aa5b0ec853f38253da9409e1399a/data/IMG_20250302_182932.png)](https://www.youtube.com/watch?v=cc9UuUCDr4E&feature=youtu.be)
+### pip version
+```
+pip install linux-monster
+linux-monster
+```
+### github version
+```
+git clone https://github.com/harkerbyte/linux-monster
+cd linux-monster
+pip install .
+cd 
+linux-monster
+```
+[![SETUP TUTORIAL YT](https://github.com/harkerbyte/linux-monster/blob/06f6a0867368aa5b0ec853f38253da9409e1399a/data/IMG_20250302_182932.png)](https://www.youtube.com/harkerbyte)
 <b>Full YouTube tutorial on how to setup Linux-Monster</b>
 
 
@@ -128,9 +167,12 @@ Get the app from <a title="F-droid termux" href="https://f-droid.org/en/packages
   <b>Here are the contents of the tool package and how to use it.</b>
   
   
-[![Termux brute force tool - working 100%](https://github.com/harkerbyte/linux-monster/blob/06f6a0867368aa5b0ec853f38253da9409e1399a/data/IMG_20250302_183022.png)](https://www.youtube.com/watch?v=wHOM4xd9dsM)
+[![Termux brute force tool - working 100%](https://github.com/harkerbyte/linux-monster/blob/06f6a0867368aa5b0ec853f38253da9409e1399a/data/IMG_20250302_183022.png)](https://www.youtube.com/harkerbyte)
 
- <p> <b>Main</b> : This is the software's power house, containing every attack job the package could possibly offer. Its interface is made simple for users to navigate. </p>
+```bash 
+linux-monster
+```
+<p><b>Main</b> : This is the software's power house, containing every attack job the package could possibly offer. Its interface is made simple for users to navigate. </p>
   <p><b> Global keyword - exit </b></br>
   <b>Every password found is saved in data/temps.txt</b>
   </p>
@@ -138,14 +180,19 @@ Get the app from <a title="F-droid termux" href="https://f-droid.org/en/packages
 
 ![1000078602](https://github.com/user-attachments/assets/cc4e1f78-0500-48b1-b67f-10cee1751ae4)
 
+```bash
+linux-monster-migrate
+```
+<p><b>Migrate</b> : This should be the next thing you touch, incase you have decided to enable proxy. It interface is also made simple for users to comprehend, consider it a native proxy formatter.
   
-  <p> <b>Migrate</b> : This should be the next thing you touch, incase you have decided to enable proxy. It interface is also made simple for users to comprehend, consider it a native proxy formatter.
-  
-  Trust me, only this can refactor your imported proxies to a format that main.py can understand and work with.</p>
+Trust me, only this can refactor your imported proxies to a format the software can understandand work with.</p>
 
 ![1000078431](https://github.com/user-attachments/assets/35f9900c-f94a-4ce4-b6ba-5314d7d61c36)
 
-  <p> <b>Server (unstable)</b> : This is specifically made for brute force attacks only when proxy is enabled. For the best performance, be sure you have provided migrate with premium proxies. Otherwise, you are likely to face proxy issues</p>
+```bash
+linux-monster-server
+```
+<p><b>Server (unstable)</b> : This is specifically made for brute force attacks only when proxy is enabled. For the best performance, be sure you have provided migrate with premium proxies. Otherwise, you are likely to face proxy issues</p>
   <kbd>CTRL + C</kbd> To close server when not in use
   <table>
     <tr>
@@ -174,13 +221,15 @@ Get the app from <a title="F-droid termux" href="https://f-droid.org/en/packages
     </tr>
     
   </table>
-<p><b>Monster.log</b> : Monster.log: Here are the logs of every error encountered during attack jobs. Please make sure to provide this when reaching out to report an error that is out of scope. Possible: tracebacks. </p>
+
+```bash
+linux-monster-logs
+```
+<p><b>Monster.log</b> : Here are the logs of every error encountered during attack jobs. Please make sure to provide this when reaching out to report an error that is out of scope. Possible: tracebacks. </p>
 
 ![1000079316](https://github.com/user-attachments/assets/6c8e0c71-c251-4f28-99d3-5c2a0a72593f)
 
-<p><b>Update</b> : Run this from time to time, to make sure your copy is up to date. </p>
-
-</br>For any dictionary generated, it's saved in the password folder from which <b>main</b> sources it passwords for attacks. </p>
+</br>For any dictionary generated, it's saved in the password folder from which <b>linux-monster</b> sources it passwords for attacks. </p>
 <b>See this <a href="https://youtu.be/ewQfgRUeGU4?si=alPRccErnA-hwwjz" >video</a> for more clarity</b>
 
 </div>
