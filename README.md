@@ -9,11 +9,6 @@
 ![Platform](https://img.shields.io/badge/platform-linux%20%7C%20macos%20%7C%20windows%20%7C%20android-lightgrey)
 ![License](https://img.shields.io/pypi/l/linux-monster?color=yellow)
 
-<a href = "https://facebook.com/harkerbyte">![Facebook](https://img.shields.io/badge/Facebook-%231877F2.svg?style=flat&logo=Facebook&logoColor=white)</a>
-<a href ="https://youtube.com/@harkerbyte" >![YouTube](https://img.shields.io/badge/YouTube-%23FF0000.svg?style=flat&logo=YouTube&logoColor=white)</a>
-<a href="https://whatsapp.com/channel/0029Vb5f98Z90x2p6S1rhT0S">![WhatsApp](https://img.shields.io/badge/WhatsApp-25D366?style=flat&logo=whatsapp&logoColor=white)</a>
-<a href="https://instagram.com/harkerbyte" >
-![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=flat&amp;logo=instagram&amp;logoColor=white) </a>
 ### Issues Addressed
 <a href="https://github.com/harkerbyte/linux-monster/issues/1">  Issue #1</a>
 <a href="https://github.com/harkerbyte/linux-monster/issues/2">Issue #2</a>
