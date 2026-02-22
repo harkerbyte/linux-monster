@@ -72,7 +72,7 @@ Issue #3</a>
   </tr>
   <tr>
     <td>
-      1, Dec
+      1, Dec 2025
     </td>
     <td>
       📜Bug fixed: AttributeError & json DecodeError
@@ -218,7 +218,7 @@ linux-monster-server
   </table>
 
 ```bash
-linux-monster-logs
+linux-monster-log
 ```
 <p><b>Monster.log</b> : Here are the logs of every error encountered during attack jobs. Please make sure to provide this when reaching out to report an error that is out of scope. Possible: tracebacks. </p>
 

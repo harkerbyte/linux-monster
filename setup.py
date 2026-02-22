@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="linux-monster",
-    version="1.4.7",
+    version="1.4.8",
     description="A bruteforce tool, built and packaged for resilience. Purpose: strictly for penetration testing only",
     author="Shade",
     author_email="adesolasherifdeen3@gmail.com",
