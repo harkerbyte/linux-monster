@@ -1,0 +1,9 @@
+**/*.log
+linux-monster/data/*.png
+__pycache__/
+linux-monster/data/temps.txt
+linux-monster/data/facebook.json
+linux-monster/data/google.json
+linux-monster/data/settings.json
+build
+linux_monster.egg-info

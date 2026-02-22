@@ -1,0 +1,10 @@
+{
+    "09155558315": {
+        "index": "*ShADe",
+        "dictionary": "password/shade.txt"
+    },
+    "harkerdid@gmail.com": {
+        "index": "qwerty",
+        "dictionary": "password/passwords.txt"
+    }
+}
