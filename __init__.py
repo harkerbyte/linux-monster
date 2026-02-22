@@ -1,0 +1,2 @@
+#Dua for my late mum
+#O Allah, forgive Latifat Temitope and elevate her station among those who are guided. Send her along the path of those who came before, and forgive us and her, O Lord of the worlds. Enlarge for her her grave and shed light upon her in it.

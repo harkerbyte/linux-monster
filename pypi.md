@@ -3,6 +3,17 @@
 ![GitHub forks](https://img.shields.io/github/forks/harkerbyte/linux-monster?style=plastic)
 ![GitHub Issues or Pull Requests](https://img.shields.io/github/issues/harkerbyte/linux-monster?style=plastic&logo=Github)
 
+![PyPI - Version](https://img.shields.io/pypi/v/linux-monster?color=blue&label=PyPI)
+[![PyPI Downloads](https://static.pepy.tech/personalized-badge/linux-monster?period=total&units=INTERNATIONAL_SYSTEM&left_color=BLACK&right_color=BLUE&left_text=downloads)](https://pepy.tech/projects/linux-monster)
+
+![Platform](https://img.shields.io/badge/platform-linux%20%7C%20macos%20%7C%20windows%20%7C%20android-lightgrey)
+![License](https://img.shields.io/pypi/l/linux-monster?color=yellow)
+
+<a href = "https://facebook.com/harkerbyte">![Facebook](https://img.shields.io/badge/Facebook-%231877F2.svg?style=flat&logo=Facebook&logoColor=white)</a>
+<a href ="https://youtube.com/@harkerbyte" >![YouTube](https://img.shields.io/badge/YouTube-%23FF0000.svg?style=flat&logo=YouTube&logoColor=white)</a>
+<a href="https://whatsapp.com/channel/0029Vb5f98Z90x2p6S1rhT0S">![WhatsApp](https://img.shields.io/badge/WhatsApp-25D366?style=flat&logo=whatsapp&logoColor=white)</a>
+<a href="https://instagram.com/harkerbyte" >
+![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=flat&amp;logo=instagram&amp;logoColor=white) </a>
 ### Issues Addressed
 <a href="https://github.com/harkerbyte/linux-monster/issues/1">  Issue #1</a>
 <a href="https://github.com/harkerbyte/linux-monster/issues/2">Issue #2</a>
@@ -78,13 +89,19 @@ Issue #3</a>
   </tr>
  <tr> 
   <td>
-  21 Feb 2026
+  21, Feb 2026
   </td>
   <td> 
-   📜Migration to pypi 
+   📜Migration to pypi</br>
+   📜Proper error handling</br>
+   📜Memory issue has now been fixed</br>
+   📜Brute operation further optimised towards lesser memory consumption
   </td>
   <td> 
-  You can now pip install linux-monster 
+  New keyword added : refresh</br>
+  You can now pip install linux-monster</br>
+  Brute automatically continues from where ever you last stopped, courtesy of memory</br>
+  python -m update is no longer a thing, simply pip install linux-monster to always stay upto date.</br>
   </td>
  </tr>
  
@@ -135,8 +152,10 @@ linux-monster
 ### github version
 ```
 git clone https://github.com/harkerbyte/linux-monster
-pip install linux-monster 
-linux-monster 
+cd linux-monster
+pip install .
+cd 
+linux-monster
 ```
 [![SETUP TUTORIAL YT](https://github.com/harkerbyte/linux-monster/blob/06f6a0867368aa5b0ec853f38253da9409e1399a/data/IMG_20250302_182932.png)](https://www.youtube.com/harkerbyte)
 <b>Full YouTube tutorial on how to setup Linux-Monster</b>
@@ -210,12 +229,7 @@ linux-monster-logs
 
 ![1000079316](https://github.com/user-attachments/assets/6c8e0c71-c251-4f28-99d3-5c2a0a72593f)
 
-```bash
-linux-monster-update 
-```
-<p><b>Update</b> : Run this from time to time, to make sure your copy is up to date. </p>
-
-</br>For any dictionary generated, it's saved in the password folder from which <b>main</b> sources it passwords for attacks. </p>
+</br>For any dictionary generated, it's saved in the password folder from which <b>linux-monster</b> sources it passwords for attacks. </p>
 <b>See this <a href="https://youtu.be/ewQfgRUeGU4?si=alPRccErnA-hwwjz" >video</a> for more clarity</b>
 
 </div>
