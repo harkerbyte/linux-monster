@@ -123,7 +123,7 @@ def open_settings(modify):
           try:
             pass_holder = f"""
             Current password file : {set_json["password path"]}
-            Your new password file must be located in password folder
+            Your new password file must be located in this password folder
             """
             print(f'{blue}{textwrap.dedent(pass_holder)} {plain}')
           except KeyError:
@@ -533,6 +533,7 @@ def main():
           br = False
     elif command.lower() == 'payload':
       print('This feature is in maintenance, i am sorry for the disappointment')
+      subprocess.run(['xdg-open', 'https://whatsapp.com/channel/0029Vb5f98Z90x2p6S1rhT0S'])
       payload = False
       while payload:
         holder = """\n

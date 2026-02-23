@@ -3,6 +3,7 @@ import sys
 import time
 import random
 import subprocess
+from pathlib import Path
 
 red = '\033[1;31m'
 blue = '\033[1;36m'
@@ -10,6 +11,7 @@ purple = '\033[2;35m'
 yellow = '\033[1;33m'
 green = '\033[1;32m'
 plain = '\033[1;0m'
+
 
 class generate:
   def __init__(self,*args):
@@ -26,8 +28,9 @@ class generate:
             try:
               day, month, year, full_year = (parts[0]), (parts[1]), (parts[2][-2:]), parts[2]
               data_int = [day,month,year,full_year]
-            except ValueError:
+            except (ValueError,TypeError):
               sys.stderr.write(f'Error parsing {parts}')
+            
           pass
         else:    
           data_str.append(data)
@@ -87,13 +90,14 @@ You can enter help | exit when necessary
 '''    
 os.system('cls' if os.name == 'nt' else 'clear')
 def take_keywords():
+  base_dir = Path(__file__).resolve().parents[1]
   print(banner)
   keywords_collected = set()
   i = 0
   while i >= 0:
     value = input("Keyword >>> ").lower()
     value = value.strip()
-    if value != "" and value != 'help' and value != 'exit':
+    if value != "" and value not in ['exit','help']:
       keywords_collected.add(value)
       i += 1
     elif value == 'help':
@@ -108,25 +112,20 @@ def take_keywords():
         
         file = f'{file}.txt'
         
-        if not os.path.exists(f'password/{file}'):
-          collect_passwords = set()
-          generator = generate(*keywords_collected)
-          total_returnee = generator.password_total()
-          while len(collect_passwords) < total_returnee:
-            f_password = generator.write_password()
-            print(f'{yellow}Retrieved {f_password}{plain}')
-            collect_passwords.add(f_password)
-            i += 1
+        collect_passwords = set()
+        generator = generate(*keywords_collected)
+        total_returnee = generator.password_total()
+        while len(collect_passwords) <= total_returnee:
+          f_password = generator.write_password()
+          print(f'{yellow}Retrieved {f_password}{plain}')
+          collect_passwords.add(f_password)
           
-          parse_dict = list(collect_passwords)
-          save_to = open(f'password/{file}', 'a')
-          for data in parse_dict:
-            save_to.write(f'{data}\n')
+        parse_dict = list(collect_passwords)
+        save_to = open(f'{base_dir}/password/{file}', 'w')
+        for data in parse_dict:
+          save_to.write(f'{data}\n')
           
-          print(f'{green}Dictionary saved >>> password/{file}{plain}')
-          break
-        
-        sys.stderr.write(f'{red}{file} already exists{plain}')
+        print(f'{green}Dictionary saved >>> password/{file}{plain}')
         break
         
 if __name__ == '__main__':
